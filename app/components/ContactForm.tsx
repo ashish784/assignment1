@@ -1,6 +1,7 @@
-"use client";
+"use client"; // Add this at the top of the file
 
 import React, { useState } from 'react';
+import Notification from './Notification'; // Import the Notification component
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +11,8 @@ const ContactForm: React.FC = () => {
     businessEmail: ''
   });
 
+  const [notification, setNotification] = useState(false);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -18,15 +21,15 @@ const ContactForm: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('Form Submitted:', formData);
-    // Handle form submission, e.g., send data to an API
-    alert(`Form Submitted: ${JSON.stringify(formData)}`);
+    setNotification(true);
+    setTimeout(() => setNotification(false), 3000); // Hide notification after 3 seconds
   };
 
   return (
     <div className="bg-gradient-to-r from-yellow-400 to-green-400 p-8 flex flex-col items-center justify-center min-h-screen">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-white">Lets discuss Your project</h2>
-        <p className="text-white mt-4">Lets figure out how to create an effective application, its cost and terms of its development</p>
+        <h2 className="text-3xl font-bold text-white">Let discuss Your project</h2>
+        <p className="text-white mt-4">Let figure out how to create an effective application, its cost and terms of its development</p>
       </div>
       <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
         <div className="mb-4">
@@ -81,6 +84,11 @@ const ContactForm: React.FC = () => {
           Discuss the project
         </button>
       </form>
+      <Notification
+        message="Form submitted successfully!"
+        show={notification}
+        onClose={() => setNotification(false)}
+      />
     </div>
   );
 };
