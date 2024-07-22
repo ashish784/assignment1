@@ -1,11 +1,11 @@
 import BlueArrow from "../../public/assets/blue-button.svg";
 import Image from "next/image";
-import Gradient from "../../public/assets/gradient.svg";
+import Gradient from "../../public/assets/Gradient.svg";
 import HeroImage from "../../public/assets/Image.svg";
 import Google from "../../public/assets/Google.svg";
 import Slack from "../../public/assets/Slack.svg";
 import Trustpilot from "../../public/assets/Trustpilot.svg";
-import CNN from "../../public/assets/cnn.svg";
+import CNN from "../../public/assets/CNN.svg";
 import Cluth from "../../public/assets/Clutch.svg";
 
 export function Hero() {
