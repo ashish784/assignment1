@@ -1,8 +1,8 @@
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Logo from "../../public/assets/Logo.svg";
 import User from "../../public/assets/User.svg";
 import Menu from "../../public/assets/Menu.svg";
-import { features } from "process";
 
 const navLinks = [
     { name: "Services" },
@@ -10,11 +10,30 @@ const navLinks = [
     { name: "Cases" },
     { name: "FAQ" },
     { name: "Contacts" }
-]
+];
 
 export function Navbar() {
+    const [isSticky, setIsSticky] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 100)
+            {
+                setIsSticky(true);
+            } else {
+                setIsSticky(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
-        <nav className="flex w-full items-center justify-between px-[20px] py-[16px] lg:container lg:mx-auto lg:px-20">
+        <nav className={`flex w-full items-center justify-between px-[20px] py-[16px] lg:container lg:mx-auto lg:px-20 bg-white shadow-md ${isSticky ? 'fixed top-0 z-50' : ''}`}>
             <div className="flex items-center">
                 <Image src={Logo} alt="Logo" />
 
@@ -35,4 +54,4 @@ export function Navbar() {
             </div>
         </nav>
     );
-};
+}
