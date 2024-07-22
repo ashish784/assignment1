@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState } from 'react';
 
 const ContactForm: React.FC = () => {
@@ -16,12 +17,13 @@ const ContactForm: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log('Form Submitted:', formData);
     // Handle form submission, e.g., send data to an API
-    console.log(formData);
+    alert(`Form Submitted: ${JSON.stringify(formData)}`);
   };
 
   return (
-    <div className="bg-gradient-to-r from-yellow-400 to-green-400 p-8 flex flex-col items-center justify-center">
+    <div className="bg-gradient-to-r from-yellow-400 to-green-400 p-8 flex flex-col items-center justify-center min-h-screen">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-white">Lets discuss Your project</h2>
         <p className="text-white mt-4">Lets figure out how to create an effective application, its cost and terms of its development</p>
@@ -32,6 +34,7 @@ const ContactForm: React.FC = () => {
           <input
             type="text"
             name="fullName"
+            id="fullName"
             value={formData.fullName}
             onChange={handleChange}
             className="mt-1 block w-full p-2 border rounded"
@@ -43,6 +46,7 @@ const ContactForm: React.FC = () => {
           <input
             type="text"
             name="phoneNumber"
+            id="phoneNumber"
             value={formData.phoneNumber}
             onChange={handleChange}
             className="mt-1 block w-full p-2 border rounded"
@@ -54,6 +58,7 @@ const ContactForm: React.FC = () => {
           <input
             type="text"
             name="businessName"
+            id="businessName"
             value={formData.businessName}
             onChange={handleChange}
             className="mt-1 block w-full p-2 border rounded"
@@ -65,6 +70,7 @@ const ContactForm: React.FC = () => {
           <input
             type="email"
             name="businessEmail"
+            id="businessEmail"
             value={formData.businessEmail}
             onChange={handleChange}
             className="mt-1 block w-full p-2 border rounded"
