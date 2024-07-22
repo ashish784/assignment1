@@ -92,6 +92,13 @@ export function Navbar() {
 
       {isMenuOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col items-center justify-center">
+          <div className="absolute top-5 right-5">
+            <MdClose
+              size={24}
+              className="cursor-pointer text-[#36485C]"
+              onClick={handleMenuToggle}
+            />
+          </div>
           <div className="grid grid-cols-1 gap-4 p-8 md:grid-cols-2 w-full">
             {navLinks.map((item, index) => (
               <Link href={item.href} key={index}>
