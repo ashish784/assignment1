@@ -4,13 +4,14 @@ import React, { useState } from 'react';
 import Notification from './Notification';
 
 const ContactForm: React.FC = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     fullName: '',
     phoneNumber: '',
     businessName: '',
     businessEmail: ''
-  });
+  };
 
+  const [formData, setFormData] = useState(initialFormData);
   const [notification, setNotification] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,15 +24,16 @@ const ContactForm: React.FC = () => {
     console.log('Form Submitted:', formData);
     setNotification(true);
     setTimeout(() => setNotification(false), 3000);
+    setFormData(initialFormData); // Reset the form fields
   };
 
   return (
     <div className="bg-gradient-to-r from-yellow-400 to-green-400 p-8 flex flex-col items-center justify-center min-h-screen rounded-[16px] py-[56px] px-[32px] mt-16">
-      <div className="text-center mb-8 py-[56px] px-[32px]">
-        <h2 className="text-3xl text-white text-[32px] font-medium lg:text-[56px] leading-[64px]">Let discuss Your project</h2>
-        <p className="text-white mt-4">Let figure out how to create an effective application, its cost and terms of its development</p>
+      <div className="text-center mb-4 py-4 px-[32px]">
+        <h2 className="text-3xl text-white text-[32px] font-medium lg:text-[56px] leading-[64px]">Let's discuss Your project</h2>
+        <p className="text-white mt-2">Let's figure out how to create an effective application, its cost and terms of its development</p>
       </div>
-      <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
+      <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full mt-4">
         <div className="mb-4">
           <label htmlFor="fullName" className="block text-gray-700">Full name</label>
           <input
