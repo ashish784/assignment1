@@ -23,8 +23,8 @@ const ContactForm: React.FC = () => {
   return (
     <div className="bg-gradient-to-r from-yellow-400 to-green-400 p-8 flex flex-col items-center justify-center">
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-white">Let's discuss Your project</h2>
-        <p className="text-white mt-4">Let's figure out how to create an effective application, its cost and terms of its development</p>
+        <h2 className="text-3xl font-bold text-white">Lets discuss Your project</h2>
+        <p className="text-white mt-4">Lets figure out how to create an effective application, its cost and terms of its development</p>
       </div>
       <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
         <div className="mb-4">
