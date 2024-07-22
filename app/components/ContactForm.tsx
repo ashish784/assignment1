@@ -1,7 +1,7 @@
-"use client"; // Add this at the top of the file
+"use client"; 
 
 import React, { useState } from 'react';
-import Notification from './Notification'; // Import the Notification component
+import Notification from './Notification';
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -22,11 +22,11 @@ const ContactForm: React.FC = () => {
     e.preventDefault();
     console.log('Form Submitted:', formData);
     setNotification(true);
-    setTimeout(() => setNotification(false), 3000); // Hide notification after 3 seconds
+    setTimeout(() => setNotification(false), 3000);
   };
 
   return (
-    <div className="bg-gradient-to-r from-yellow-400 to-green-400 p-8 flex flex-col items-center justify-center min-h-screen pt-[24] rounded-[16px]">
+    <div className="bg-gradient-to-r from-yellow-400 to-green-400 p-8 flex flex-col items-center justify-center min-h-screen mb-4 rounded-[16px]">
       <div className="text-center mb-8">
         <h2 className="text-3xl font-bold text-white">Let discuss Your project</h2>
         <p className="text-white mt-4">Let figure out how to create an effective application, its cost and terms of its development</p>
