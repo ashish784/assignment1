@@ -71,9 +71,15 @@ export function Navbar() {
 
           <div className="lg:hidden" onClick={handleMenuToggle}>
             {isMenuOpen ? (
-              <MdClose size={24} className="cursor-pointer" />
+              <MdClose size={24} className="cursor-pointer text-[#36485C]" />
             ) : (
-              <Image src={Menu} alt="Menu Button" className="cursor-pointer" />
+              <Image
+                src={Menu}
+                alt="Menu Button"
+                className="cursor-pointer"
+                width={24}
+                height={24}
+              />
             )}
           </div>
         </div>
@@ -81,7 +87,7 @@ export function Navbar() {
 
       {isMenuOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col items-center justify-center">
-          <div className="grid grid-cols-2 gap-4 p-8">
+          <div className="grid grid-cols-1 gap-4 p-8 md:grid-cols-2">
             {navLinks.map((item, index) => (
               <div
                 key={index}
@@ -96,4 +102,4 @@ export function Navbar() {
       )}
     </>
   );
-};
+}
