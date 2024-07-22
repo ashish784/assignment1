@@ -90,29 +90,28 @@ export function Navbar() {
         </div>
       </nav>
 
-      {isMenuOpen && (
-        <div className="fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col items-center justify-center">
-          <div className="absolute top-5 right-5">
-            <MdClose
-              size={24}
-              className="cursor-pointer text-[#36485C]"
-              onClick={handleMenuToggle}
-            />
-          </div>
-          <div className="grid grid-cols-1 gap-4 p-8 md:grid-cols-2 w-full">
-            {navLinks.map((item, index) => (
-              <Link href={item.href} key={index}>
-                <div
-                  className="bg-gray-200 text-center py-4 px-8 rounded-lg shadow-lg text-[#36485C] font-medium text-lg cursor-pointer hover:bg-gray-300 transition-all"
-                  onClick={handleMenuToggle}
-                >
-                  {item.name}
-                </div>
-              </Link>
-            ))}
-          </div>
+      <div
+        className={`fixed top-0 left-0 h-full bg-white z-50 flex flex-col items-center justify-center transform ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 ease-in-out`}
+      >
+        <div className="absolute top-5 right-5">
+          <MdClose
+            size={24}
+            className="cursor-pointer text-[#36485C]"
+            onClick={handleMenuToggle}
+          />
         </div>
-      )}
+        <div className="flex flex-col items-center gap-4 mt-16">
+          {navLinks.map((item, index) => (
+            <Link href={item.href} key={index} onClick={handleMenuToggle}>
+              <p className="text-[#36485C] font-medium text-lg cursor-pointer hover:underline">
+                {item.name}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </div>
     </>
   );
 }
