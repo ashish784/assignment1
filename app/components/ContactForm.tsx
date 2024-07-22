@@ -27,8 +27,8 @@ const ContactForm: React.FC = () => {
 
   return (
     <div className="bg-gradient-to-r from-yellow-400 to-green-400 p-8 flex flex-col items-center justify-center min-h-screen rounded-[16px] py-[56px] px-[32px] mt-16">
-      <div className="text-center mb-4 py-[56px] px-[32px] lg:my-[60px] lg:px-[320px] lg:py-[89px]">
-        <h2 className="text-3xl font-bold text-white">Let discuss Your project</h2>
+      <div className="text-center mb-4 py-[56px] px-[32px]">
+        <h2 className="text-3xl text-white text-[32px] font-medium lg:text-[56px] leading-[64px]">Let discuss Your project</h2>
         <p className="text-white mt-4">Let figure out how to create an effective application, its cost and terms of its development</p>
       </div>
       <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-lg p-8 max-w-lg w-full">
