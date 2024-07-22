@@ -2,16 +2,17 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Logo from "../../public/assets/Logo.svg";
 import User from "../../public/assets/User.svg";
-import Menu from "../../public/assets/Menu.svg";
+import MenuIcon from "../../public/assets/Menu.svg";
 import { MdClose } from "react-icons/md";
 
 const navLinks = [
-  { name: "Features" },
-  { name: "Pricing" },
-  { name: "Enterprise" },
-  { name: "Careers" },
+  { name: "Features", href: "#" },
+  { name: "Pricing", href: "#" },
+  { name: "Enterprise", href: "#" },
+  { name: "Careers", href: "#" },
 ];
 
 export function Navbar() {
@@ -46,13 +47,17 @@ export function Navbar() {
         }`}
       >
         <div className="flex items-center">
-          <Image src={Logo} alt="Logo" />
+          <Link href="/">
+            <Image src={Logo} alt="Logo" className="cursor-pointer" />
+          </Link>
 
           <div className="hidden lg:flex pl-[74px] gap-x-[56px]">
             {navLinks.map((item, index) => (
-              <p className="text-[#36485C] font-medium" key={index}>
-                {item.name}
-              </p>
+              <Link href={item.href} key={index}>
+                <p className="text-[#36485C] font-medium cursor-pointer">
+                  {item.name}
+                </p>
+              </Link>
             ))}
           </div>
         </div>
@@ -74,7 +79,7 @@ export function Navbar() {
               <MdClose size={24} className="cursor-pointer text-[#36485C]" />
             ) : (
               <Image
-                src={Menu}
+                src={MenuIcon}
                 alt="Menu Button"
                 className="cursor-pointer"
                 width={24}
@@ -87,15 +92,16 @@ export function Navbar() {
 
       {isMenuOpen && (
         <div className="fixed top-0 left-0 w-full h-full bg-white z-50 flex flex-col items-center justify-center">
-          <div className="grid grid-cols-1 gap-4 p-8 md:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 p-8 md:grid-cols-2 w-full">
             {navLinks.map((item, index) => (
-              <div
-                key={index}
-                className="bg-gray-200 text-center py-4 px-8 rounded-lg shadow-lg text-[#36485C] font-medium text-lg cursor-pointer"
-                onClick={handleMenuToggle}
-              >
-                {item.name}
-              </div>
+              <Link href={item.href} key={index}>
+                <div
+                  className="bg-gray-200 text-center py-4 px-8 rounded-lg shadow-lg text-[#36485C] font-medium text-lg cursor-pointer hover:bg-gray-300 transition-all"
+                  onClick={handleMenuToggle}
+                >
+                  {item.name}
+                </div>
+              </Link>
             ))}
           </div>
         </div>
