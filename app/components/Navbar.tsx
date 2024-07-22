@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Logo from "../../public/assets/Logo.svg";
 import User from "../../public/assets/User.svg";
@@ -11,8 +14,30 @@ const navLinks = [
 ];
 
 export function Navbar() {
+  const [isSticky, setIsSticky] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsSticky(true);
+      } else {
+        setIsSticky(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="flex w-full items-center justify-between px-[20px] py-[16px] lg:container lg:mx-auto lg:px-20">
+    <nav
+      className={`flex w-full items-center justify-between px-[20px] py-[16px] lg:px-20 transition-all duration-300 ${
+        isSticky ? "fixed top-0 left-0 w-full bg-white shadow-md z-50" : ""
+      }`}
+    >
       <div className="flex items-center">
         <Image src={Logo} alt="Logo" />
 
