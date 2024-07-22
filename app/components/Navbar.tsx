@@ -35,7 +35,7 @@ export function Navbar() {
     }, []);
 
     return (
-        <nav className={`flex w-full items-center justify-between px-[20px] py-[16px] lg:container lg:mx-auto lg:px-20 bg-white shadow-md ${isSticky ? 'fixed top-0 z-50' : ''}`}>
+        <nav className={`flex w-full items-center justify-between px-[20px] py-[16px] lg:container lg:mx-auto lg:px-20 bg-white shadow-md lg:w-fit ${isSticky ? 'fixed top-0 z-50' : ''}`}>
             <div className="flex items-center">
                 <Image src={Logo} alt="Logo" />
 
