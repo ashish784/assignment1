@@ -1,3 +1,4 @@
+import ContactForm from "./components/ContactForm";
 import { Cta } from "./components/Cta";
 import { Faq } from "./components/Faq";
 import { Features } from "./components/Features";
@@ -16,6 +17,7 @@ export default function Home() {
         <Faq />
         <Pricing />
         <Cta />
+        <ContactForm />
         <Footer />
       </div> 
    </>
