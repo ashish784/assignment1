@@ -91,7 +91,7 @@ export function Navbar() {
       </nav>
 
       <div
-        className={`fixed top-0 left-0 h-full bg-white z-50 flex flex-col items-center justify-center transform ${
+        className={`fixed top-0 left-0 w-full h-full bg-white z-50 flex items-center justify-center transform ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         } transition-transform duration-300 ease-in-out`}
       >
@@ -102,10 +102,10 @@ export function Navbar() {
             onClick={handleMenuToggle}
           />
         </div>
-        <div className="flex flex-col items-center gap-4 mt-16">
+        <div className="flex flex-col items-center gap-6">
           {navLinks.map((item, index) => (
             <Link href={item.href} key={index} onClick={handleMenuToggle}>
-              <p className="text-[#36485C] font-medium text-lg cursor-pointer hover:underline">
+              <p className="text-[#36485C] font-medium text-xl cursor-pointer hover:underline">
                 {item.name}
               </p>
             </Link>
